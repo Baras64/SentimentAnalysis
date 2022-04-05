@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>SentimentAnalyser</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	
+	</head>
+	<body class="is-preload">
+
+		<!-- Sidebar -->
+			<section id="sidebar">
+				<div class="inner">
+					<nav>
+						<ul>
+							<li><a id="Welcome" href="#intro">Welcome</a></li>
+							<li><a id="CSV" href="#one">Load From CSV</a></li>
+							<li><a id="API" href="#two">API</a></li>
+							
+						</ul>
+					</nav>
+				</div>
+			</section>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Intro -->
+					<section id="intro" class="wrapper style1 fullscreen fade-up">
+						<div class="inner" style=" padding-top:0px !important;"><br>
+							<h1>SentimentAnalyser</h1>
+							<p>We help businesses  to understand the social sentiment of their brand, product, service or potential customers while monitoring online conversations.</p>
+							<div class="content">
+								<div class="inner">
+									<input type="text" placeholder="Type here.." name="sentiment_text" /><br> 
+									<div class="features">
+									<label id="RT" style="font-size:14px;padding:5px">Analysed Response </label>
+								
+									</div>
+									<input type="button" value="Let's Analyze" />
+								</div>
+							</div>
+						</div>
+					</section>
+
+				<!-- One -->
+					<section id="one" class="wrapper style2 spotlights" style="height:600px">
+						<section>
+							<div class="inner" style="margin-left:5%;margin-top:5%;height:350px;width:80%;">
+								<label class="btn-bs-file btn btn-lg btn-success">
+										Upload CSV:
+								<input type="file" title="CSV" id="UploadedCSV"/>
+								</label>
+								<div class="features">
+									<label id="RTCSV" style="font-size:14px;padding:5px">Analysed Response </label>
+									<div>
+										<img id="PlotedGraph" href="#"  style="display:none;"/>
+										<canvas id="PlotedGraphcanvas" width="80%" height="300"></canvas>
+									</div>
+								</div>
+							
+								<input type="button" value="Let's Analyze This CSV !" />
+								<input id="DownloadCSV" type="button" style="btn-success" value="Download Your Analysed CSV" disabled />
+							</div>
+						</section>
+					</section>
+
+				<!-- Two -->
+					<section id="two" class="wrapper style3 fade-up" style="height:600px">
+						<div class="inner">
+							<h2>How can your business benefit from sentiment analysis API's?</h2>
+							<p>Companies use sentiment analysis to automatically analyze survey responses, product reviews, social media comments, and the like to get valuable insights about their brands, product, and services .</p>
+							<p>To classify make a POST request to the following URL :</p>
+							
+							<div class="features" style="color:white;background-color:black">
+								&nbsp<h3>API KEY :</h3>&nbsp
+								<label style="font-size:18px">Insert your API Key</label>
+							
+							</div>
+							
+						</div>
+					</section>
+
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper style1-alt">
+				<div class="inner">
+					<ul class="menu">
+						
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+	<script>
+		
+			//Code to show and hide on Sidebar click
+			$( document ).ready(function() {
+			
+				$("#Welcome").click(function(){
+					$("#intro").show();
+					$("#one").hide();
+					$("#two").hide();
+				});
+				
+				$("#CSV").click(function(){
+					$("#intro").hide();
+					$("#one").show();
+					$("#two").hide();
+				});
+				
+				$("#API").click(function(){
+					$("#intro").hide();
+					$("#one").hide();
+					$("#two").show();
+				});
+				
+			});
+				
+					
+				
+		
+		</script>
+	</body>
+</html>

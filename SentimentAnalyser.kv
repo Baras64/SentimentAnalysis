@@ -1,0 +1,79 @@
+#: import FallOutTransition kivy.uix.screenmanager.FallOutTransition
+#: import FileChooser kivy.uix.filechooser.FileChooser
+#: import FileChooserListLayout kivy.uix.filechooser.FileChooserListLayout
+#: import utils kivy.utils
+#: import FileChooserIconLayout kivy.uix.filechooser.FileChooserIconLayout
+
+ScreenManagement:
+    transition: FallOutTransition()
+    LandingScreen:
+    MainScreen:
+
+<LandingScreen>:
+    FloatLayout:
+        Button:
+            #background_color: utils.get_color_from_hex('#160082')
+            background_color: 0, 0, 0, 1
+            text: 'Click to start analysing'
+            color: 0.94, 0.92, 0.85, 1
+            font_size: 50
+            on_press: app.root.current = 'main'
+
+<MainScreen>:
+    name: 'main'
+    canvas:
+        Color:
+            #rgba: 0.0862, 0, 0.51, 0.4
+            rgba: 0, 0, 0, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    FloatLayout:
+        pos_hint: {'left': None, 'top':1}
+        size_hint_y: 0.2
+        Label:
+            text: 'SENTIMENT ANALYSER'
+            color: 0.94, 0.92, 0.85, 1
+            pos_hint: {'left': 0.5, 'top': 0.99}
+            font_size: 50
+    FloatLayout:
+        pos_hint: {'left': None, 'top': 0.8}
+        Button:
+            id: file_explore_btn
+            text: 'load from csv'
+            on_press: root.btn_touch_up()
+            pos_hint: {'right': 0.32, 'top': 0.45}
+            size_hint: 0.2, 0.1
+            background_normal: 'normal.png'
+            background_down: 'down.png'
+            border: 30, 30, 30, 30
+
+        TextInput:
+            #background_color: 0, 0, 0, 1
+            background_color: 0.94, 0.92, 0.85, 1
+            id: user_input
+            hint_text: 'Insert your Text here'
+#            foreground_color: 1,1,1,1
+            pos_hint: {'right': 0.61, 'top': 0.9}
+            size_hint: 0.6, 0.4
+            font_size: 18
+        Button:
+            text: 'Predict'
+            size_hint: 0.2, 0.1
+            pos_hint: {'right': 0.53, 'top': 0.45}
+            on_press: root.predict(user_input, prediction)
+            background_normal: 'normal.png'
+            background_down: 'down.png'
+            border: 30, 30, 30, 30
+        TextInput:
+            #background_color: 0, 0, 0, 1
+            background_color: 0.94, 0.92, 0.85, 1
+            id: prediction
+            hint_text: 'Predicted Value'
+#            foreground_color: 1,1,1,1
+            readonly: True
+            pos_hint: {'right': 0.99, 'top': 0.9}
+            size_hint: 0.3, 0.4
+            font_size: 24
+            halign: 'center'
+            valign: 'middle'
